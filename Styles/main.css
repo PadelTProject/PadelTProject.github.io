@@ -1,0 +1,38 @@
+
+
+    body { 
+        background: no-repeat center center fixed; 
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+
+    .container{
+        margin-top: 20px;
+    }
+    .result{
+        font-weight: bold;
+    }
+    
+    .ongoingGame{
+        font-size: 24px;
+        padding-bottom: 15px;
+    }
+
+    .face{
+        height: 75px;
+        width: 75px;
+        padding: 0.3rem !important;
+    }
+
+
+    .row.leftTeam{
+        text-align: right;
+    }
+
+    .showText > h1{
+        color: black;
+        font-size: 56px;
+
+    }
