@@ -1,38 +1,68 @@
+html, body {
+    height: 100%;
+  }
+  .header {
+    height: 160px; 
+    background-color: #FFDE32;
+    color: #fff;
+    text-align: center;
+    padding: 2%;
+  }
+  .content {
+    height: 820px;
+    background-color: #ddd;
+    text-align: center;
+    padding: 2%;
+  }
+  .footer {
+    height: 100px;
+    background-color: #FFDE32;
+    color: #000;
+    text-align: center;
+   
+  }
 
+  .logo {
+    max-height: 120px;
+  }
 
-    body { 
-        background: no-repeat center center fixed; 
-        -webkit-background-size: cover;
-        -moz-background-size: cover;
-        -o-background-size: cover;
-        background-size: cover;
-    }
+  h1{
+    font-family: fantasy !important;
+    font-size: 3.5rem;
+    text-shadow: 1px 1px 2px #000000;
+  }
 
-    .container{
-        margin-top: 20px;
-    }
-    .result{
-        font-weight: bold;
-    }
+  .clock{
+    font-size: XX-large;
+    font-weight: bold;
+  }
+  .scheduleHeader{
+    background-color: #032067;
+    height:80px;
+    line-height:80px;
+    color:#fff;
+    text-align: center;
+    font-family: fantasy !important;
+    font-size: 2rem;
+  }
+
+  .scheduleDetailsTime{
+    background-color: #FFDE32;
+    line-height:80px;
+  }
+
+  .scheduleDetailsRow{
+    height: 90px;
+  }
+
+  .scheduleDetailsPlayer{
+    background-color: #fff;
+  }
+
+  .scheduleDetailsTeams
+  {
+    height:80px;
     
-    .ongoingGame{
-        font-size: 24px;
-        padding-bottom: 15px;
-    }
+    padding-right: 0px;
 
-    .face{
-        height: 75px;
-        width: 75px;
-        padding: 0.3rem !important;
-    }
-
-
-    .row.leftTeam{
-        text-align: right;
-    }
-
-    .showText > h1{
-        color: black;
-        font-size: 56px;
-
-    }
+  }
