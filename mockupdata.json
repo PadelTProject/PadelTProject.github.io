@@ -1,32 +1,30 @@
 {
-    "TournamentInfo": 
+  "TournamentInfo": {
+    "Name": "Open QMB",
+    "Start": "2023-02-03",
+    "End": "2023-02-05",
+    "BackgroundImage": "https://scontent.fopo2-2.fna.fbcdn.net/v/t39.30808-6/326996535_575731754459798_7236756661245139458_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=730e14&_nc_ohc=3o5BiTtGIUEAX_P2Alr&_nc_ht=scontent.fopo2-2.fna&oh=00_AfA_IpEStKIaVgjPAP8QpZH3SS0lsUEvpeX8LtSyIvpzxg&oe=63E4AACA"
+  },
+  "TournamentGames": [
     {
-        "Name": "Open QMB",
-        "Start": "2023-02-03",
-        "End": "2023-02-05",
-        "BackgroundImage": "https://scontent.fopo2-2.fna.fbcdn.net/v/t39.30808-6/326996535_575731754459798_7236756661245139458_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=730e14&_nc_ohc=3o5BiTtGIUEAX_P2Alr&_nc_ht=scontent.fopo2-2.fna&oh=00_AfA_IpEStKIaVgjPAP8QpZH3SS0lsUEvpeX8LtSyIvpzxg&oe=63E4AACA"
-    },
-    "TournamentGames": 
-    [
-      {
-          "CourtName":"QMB 1",
-          "Games":
-              [{
-                "Status" : "Ongoing",
-                "Result" : "2-7",
-                "RealStartTime" : "2023-02-05 22:10",
-                "ScheduledStartTime" : "2023-02-05 22:00"
-              },
-              {
-                "Status" : "Not Started",
-                "ScheduledStartTime" : "2023-02-05 23:00"
-                },
-          {
-                "Status" : "Not Started",
-                "ScheduledStartTime" : "2023-02-05 23:45"
-                }
-              ]
-      }
-    ],
-    "TournamentTrees": "gold"
-  }
+      "CourtName": "QMB 1",
+      "Games": [
+        {
+          "Status": "Ongoing",
+          "Result": "2-7",
+          "RealStartTime": "2023-02-05 22:10",
+          "ScheduledStartTime": "2023-02-05 22:00"
+        },
+        {
+          "Status": "Not Started",
+          "ScheduledStartTime": "2023-02-05 23:00"
+        },
+        {
+          "Status": "Not Started",
+          "ScheduledStartTime": "2023-02-05 23:45"
+        }
+      ]
+    }
+  ],
+  "TournamentTrees": "gold"
+}

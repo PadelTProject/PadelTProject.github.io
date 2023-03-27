@@ -1,68 +1,134 @@
-html, body {
-    height: 100%;
-  }
-  .header {
-    height: 160px; 
-    background-color: #FFDE32;
-    color: #fff;
-    text-align: center;
-    padding: 2%;
-  }
-  .content {
-    height: 820px;
-    background-color: #ddd;
-    text-align: center;
-    padding: 2%;
-  }
-  .footer {
-    height: 100px;
-    background-color: #FFDE32;
-    color: #000;
-    text-align: center;
-   
-  }
+html,
+body {
+  height: 100%;
+}
 
-  .logo {
-    max-height: 120px;
-  }
+.header {
+  height: 160px;
+  background-color: #FFDE32;
+  color: #fff;
+  text-align: center;
 
-  h1{
-    font-family: fantasy !important;
-    font-size: 3.5rem;
-    text-shadow: 1px 1px 2px #000000;
-  }
+}
 
-  .clock{
-    font-size: XX-large;
-    font-weight: bold;
-  }
-  .scheduleHeader{
-    background-color: #032067;
-    height:80px;
-    line-height:80px;
-    color:#fff;
-    text-align: center;
-    font-family: fantasy !important;
-    font-size: 2rem;
-  }
+.content {
+  height: 820px;
+  background-color: #ddd;
+  text-align: center;
+  padding: 2%;
+}
 
-  .scheduleDetailsTime{
-    background-color: #FFDE32;
-    line-height:80px;
-  }
+.footer {
+  height: 100px;
+  background-color: #FFDE32;
+  color: #000;
+  text-align: center;
 
-  .scheduleDetailsRow{
-    height: 90px;
-  }
+}
 
-  .scheduleDetailsPlayer{
-    background-color: #fff;
-  }
+.logo {
+  max-height: 120px;
+}
 
-  .scheduleDetailsTeams
-  {
-    height:80px;
-    
-    padding-right: 0px;
+h1 {
+  font-family: fantasy !important;
+  font-size: 3.5rem;
+  text-shadow: 1px 1px 2px #000000;
+}
 
-  }
+.clock {
+  font-size: XX-large;
+  font-weight: bold;
+}
+
+.scheduleHeader {
+  background-color: #032067;
+  height: 80px;
+  line-height: 80px;
+  color: #fff;
+  text-align: center;
+  font-family: fantasy !important;
+  font-size: 2rem;
+}
+
+.scheduleDetailsTime {
+  background-color: #FFDE32;
+  line-height: 80px;
+}
+
+.scheduleDetailsRow {
+  height: 90px;
+}
+
+.scheduleDetailsPlayer {
+  background-color: #fff;
+}
+
+.scheduleDetailsTeams {
+  height: 80px;
+  padding-right: 0px;
+}
+
+
+
+/* Group Name style */
+.classificationHeader {
+  background-color: #fff;
+  height: 80px;
+  line-height: 80px;
+  color: #000;
+  text-align: center;
+  font-family: fantasy !important;
+  font-size: 2rem;
+}
+
+/* Header for the classification*/
+.classificationDetailsHeader {
+  height: 65px;
+
+}
+
+.classificationDetailsHeader>div {
+  height: 50px;
+  line-height: 50px;
+  font-size: 1.5rem;
+}
+
+/* 1st column */
+.classificationPosition {
+  background-color: #FFDE32;
+}
+
+/*2nd column */
+.classificationDetailsTeams {
+  padding-right: 0px;
+  background-color: #032067;
+  color: #fff;
+}
+
+/*3rd column */
+
+.classificationDetailsResults {
+  padding-right: 0px;
+  background-color: #fff;
+  color: #000;
+}
+
+
+/* classification rows */
+
+.classificationDetailsRow {
+  height: 90px;
+}
+
+.classificationDetailsRow>div {
+  height: 80px;
+  line-height: 80px;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.classificationDetailsRow>.classificationDetailsTeams {
+  font-weight: normal;
+  line-height: 35px;
+}
