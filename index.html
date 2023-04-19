@@ -8,25 +8,28 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="Styles/main.css">
+
+
+
 </head>
 
 <body>
+  <div id="app"> 
+
   <div class="header">
     <div class="container-fluid h-100">
       <div class="row align-items-center h-100">
         <div class="col-sm-2"><img class="rounded-circle img-fluid logo" alt="clubLogo"
             src="https://www.padelteams.pt/data/img/clogo_1771_pdieuezx1679485560.png" /></div>
         <div class="col-sm-8">
-          <h1>#02 STRONG PADEL STORE OPEN</h1>
+          <h1>{{ tournamentInfo.Name }}</h1>
         </div>
         <div class="col-sm-2">
           <div class="alert alert-dark h-100 w-100 mb-0" role="alert">
             Jogos decorridos
             <br />
-            12 de 75
+            {{ tournamentInfo.GamesDone }} de {{ tournamentInfo.GamesTotal }}
           </div>
-
-
         </div>
       </div>
     </div>
@@ -423,16 +426,20 @@
       <div class="row align-items-center h-100">
         <div class="col-sm-1">
           <div class="alert alert-dark h-100 w-100 mb-0 clock" role="alert">
-            22:23
+            {{ timestamp }}
           </div>
         </div>
         <div class="col-sm-11 text-left">
-          Ultima actualização: 22:19
+          Ultima actualização: {{ tournamentInfo.LastUpdate}}
         </div>
 
       </div>
     </div>
   </div>
+</div>
 </body>
+
+  <script src="https://unpkg.com/vue@3.2.13/dist/vue.global.js"></script>
+  <script src="Scripts/main.js"></script>
 
 </html>

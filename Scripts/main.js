@@ -1,13 +1,230 @@
 
-var currentInfo = null;
 
 
-$.getJSON('data.json', function (data) {
-  // success callback
-  // 'data' variable contains the parsed JSON data
-  console.log(data);
-}).fail(function (jqxhr, textStatus, error) {
-  // error callback
-  var err = textStatus + ", " + error;
-  console.log("Request Failed: " + err);
-});
+
+
+
+  data = {
+    TournamentInfo: {
+      Name: "#023 STRONG PADEL STORE OPEN",
+      GamesTotal: "70",
+      GamesDone: "35",
+      LastUpdate: "23:34",
+      Clubs: {
+        MainClub: {
+          Name: "Braga Padel Social Cup",
+          Logo: "https://www.padelteams.pt/data/img/clogo_1771_pdieuezx1679485560.png"
+        },
+        OtherClubs: []
+      },
+      Schedule: [
+        {
+          CourtName: "Campo 1",
+          Games: [
+            {
+              StartTime: "09:00",
+              TeamHome: {
+                Player1: "Jogador A",
+                Player2: "Jogador B"
+              },
+              TeamAway: {
+                Player1: "Jogador C",
+                Player2: "Jogador D"
+              }
+            },
+            {
+              StartTime: "10:30",
+              TeamHome: {
+                Player1: "Jogador E",
+                Player2: "Jogador F"
+              },
+              TeamAway: {
+                Player1: "Jogador G",
+                Player2: "Jogador H"
+              }
+            }
+          ]
+        },
+        {
+          CourtName: "Campo 2",
+          Games: [
+            {
+              StartTime: "09:00",
+              TeamHome: {
+                Player1: "Jogador I",
+                Player2: "Jogador J"
+              },
+              TeamAway: {
+                Player1: "Jogador K",
+                Player2: "Jogador L"
+              }
+            },
+            {
+              StartTime: "10:30",
+              TeamHome: {
+                Player1: "Jogador M",
+                Player2: "Jogador N"
+              },
+              TeamAway: {
+                Player1: "Jogador O",
+                Player2: "Jogador P"
+              }
+            }
+          ]
+        },
+        {
+          CourtName: "Campo 3",
+          Games: [
+            {
+              StartTime: "09:00",
+              TeamHome: {
+                Player1: "Jogador I",
+                Player2: "Jogador J"
+              },
+              TeamAway: {
+                Player1: "Jogador K",
+                Player2: "Jogador L"
+              }
+            },
+            {
+              StartTime: "10:30",
+              TeamHome: {
+                Player1: "Jogador M",
+                Player2: "Jogador N"
+              },
+              TeamAway: {
+                Player1: "Jogador O",
+                Player2: "Jogador P"
+              }
+            }
+          ]
+        },
+        {
+          CourtName: "Campo 4",
+          Games: [
+            {
+              StartTime: "09:00",
+              TeamHome: {
+                Player1: "Jogador I",
+                Player2: "Jogador J"
+              },
+              TeamAway: {
+                Player1: "Jogador K",
+                Player2: "Jogador L"
+              }
+            },
+            {
+              StartTime: "10:30",
+              TeamHome: {
+                Player1: "Jogador M",
+                Player2: "Jogador N"
+              },
+              TeamAway: {
+                Player1: "Jogador O",
+                Player2: "Jogador P"
+              }
+            }
+          ]
+        },
+        {
+          CourtName: "Campo 5",
+          Games: [
+            {
+              StartTime: "09:00",
+              TeamHome: {
+                Player1: "Jogador I",
+                Player2: "Jogador J"
+              },
+              TeamAway: {
+                Player1: "Jogador K",
+                Player2: "Jogador L"
+              }
+            },
+            {
+              StartTime: "10:30",
+              TeamHome: {
+                Player1: "Jogador M",
+                Player2: "Jogador N"
+              },
+              TeamAway: {
+                Player1: "Jogador O",
+                Player2: "Jogador P"
+              }
+            }
+          ]
+        },
+        {
+          CourtName: "Campo 6",
+          Games: [
+            {
+              StartTime: "09:00",
+              TeamHome: {
+                Player1: "Jogador I",
+                Player2: "Jogador J"
+              },
+              TeamAway: {
+                Player1: "Jogador K",
+                Player2: "Jogador L"
+              }
+            },
+            {
+              StartTime: "10:30",
+              TeamHome: {
+                Player1: "Jogador M",
+                Player2: "Jogador N"
+              },
+              TeamAway: {
+                Player1: "Jogador O",
+                Player2: "Jogador P"
+              }
+            }
+          ]
+        }
+      ],
+      Classifications: []
+    }
+  };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  const { createApp } = Vue
+  createApp({
+    data() {
+      return {
+        tournamentInfo: {},
+        timestamp: ''
+      }
+    },
+    mounted() {
+      console.log('Mounted!');
+
+          this.tournamentInfo = data.TournamentInfo;
+    },
+    created() {
+      setInterval(this.getNow, 1000);
+    },
+    methods: {
+      getNow: function() {
+          const today = new Date();
+          const time = today.getHours() + ":" + today.getMinutes();
+          this.timestamp = time;
+      }
+  }
+
+  }).mount('#app')
+
