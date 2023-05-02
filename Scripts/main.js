@@ -17,6 +17,7 @@
         },
         OtherClubs: []
       },
+      ScheduleShowPerLine: "3",
       Schedule: [
         {
           CourtName: "Campo 1",
@@ -41,6 +42,17 @@
               TeamAway: {
                 Player1: "Jogador G",
                 Player2: "Jogador H"
+              }
+            },
+            {
+              StartTime: "11:30",
+              TeamHome: {
+                Player1: "Jogador HG",
+                Player2: "Jogador A"
+              },
+              TeamAway: {
+                Player1: "Jogador Z",
+                Player2: "Jogador T"
               }
             }
           ]
@@ -216,10 +228,14 @@
           this.tournamentInfo = data.TournamentInfo;
     },
     created() {
-      setInterval(this.getNow, 1000);
+      setInterval(this.GetNow, 1000);
     },
+    computed(){
+
+    },
+
     methods: {
-      getNow: function() {
+      GetNow: function() {
           const today = new Date();
           const time = today.getHours() + ":" + today.getMinutes();
           this.timestamp = time;
