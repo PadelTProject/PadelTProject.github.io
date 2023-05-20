@@ -162,6 +162,17 @@
                 Player1: "Jogador O",
                 Player2: "Jogador P"
               }
+            },
+            {
+              StartTime: "11:30",
+              TeamHome: {
+                Player1: "Jogador M",
+                Player2: "Jogador N"
+              },
+              TeamAway: {
+                Player1: "Jogador O",
+                Player2: "Jogador P"
+              }
             }
           ]
         },
@@ -193,7 +204,15 @@
           ]
         }
       ],
-      Classifications: []
+      Classifications: [
+            {
+                Category:"M4",
+                Phase:"Groups",
+                Group : "A"
+        
+          }
+        ]
+      }
     }
   };
 
