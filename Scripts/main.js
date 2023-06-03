@@ -209,7 +209,42 @@
                 Category:"M4",
                 Phase:"Groups",
                 Group : "A",
-                Standings: [],
+                Standings: [
+                  {
+                    Position: "1",
+                    Team: {
+                      Player1: "Jogador I",
+                      Player2: "Jogador J"
+                    },
+                    GamesPlayed:"3",
+                    GamesWon : "3",
+                    GamesLost : "0"
+                    
+                  },
+                  {
+                    Position: "2",
+                    Team: {
+                      Player1: "Jogador A",
+                      Player2: "Jogador B"
+                    },
+                    GamesPlayed:"3",
+                    GamesWon : "2",
+                    GamesLost : "1"
+                    
+                  },
+                  {
+                    Position: "3",
+                    Team: {
+                      Player1: "Jogador L",
+                      Player2: "Jogador G"
+                    },
+                    GamesPlayed:"3",
+                    GamesWon : "1",
+                    GamesLost : "2"
+                    
+                  }
+                  
+                ],
                 Results:[]
        
           }
