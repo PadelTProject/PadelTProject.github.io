@@ -205,16 +205,17 @@
         }
       ],
       Classifications: [
-            {
+          {
                 Category:"M4",
                 Phase:"Groups",
-                Group : "A"
-        
+                Group : "A",
+                Standings: [],
+                Results:[]
+       
           }
         ]
       }
-    }
-  };
+    };
 
 
 
@@ -255,9 +256,16 @@
 
     methods: {
       GetNow: function() {
-          const today = new Date();
-          const time = today.getHours() + ":" + today.getMinutes();
-          this.timestamp = time;
+        const today = new Date();
+        const hours = today.getHours();
+        let minutes = today.getMinutes();
+      
+        if (minutes < 10) {
+          minutes = "0" + minutes; // add a leading zero
+        }
+      
+        const time = hours + ":" + minutes;
+        this.timestamp = time;s
       }
   }
 
