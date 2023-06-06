@@ -213,8 +213,8 @@
                   {
                     Position: "1",
                     Team: {
-                      Player1: "Jogador I",
-                      Player2: "Jogador J"
+                      Player1: "Ricardo",
+                      Player2: "Ana"
                     },
                     GamesPlayed:"3",
                     GamesWon : "3",
@@ -245,9 +245,88 @@
                   }
                   
                 ],
-                Results:[]
+                Results:[
+                  {
+                    GameID: "4.3.3",
+                    Team1: {
+                      Player1: "Ana",
+                      Player2: "Ricardo"
+                    },
+                    Team2: {
+                      Player1: "Eduarda",
+                      Player2: "Arantes"
+                    },
+                    Results:[
+                      "7-6","4-6", "10-7"
+                    ]
+                    
+                  }
+
+
+                ]
        
-          }
+          },
+          {
+            Category:"M3",
+            Phase:"Groups",
+            Group : "A",
+            Standings: [
+              {
+                Position: "1",
+                Team: {
+                  Player1: "Ricardo",
+                  Player2: "Ana"
+                },
+                GamesPlayed:"3",
+                GamesWon : "3",
+                GamesLost : "0"
+                
+              },
+              {
+                Position: "2",
+                Team: {
+                  Player1: "Jogador A",
+                  Player2: "Jogador B"
+                },
+                GamesPlayed:"3",
+                GamesWon : "2",
+                GamesLost : "1"
+                
+              },
+              {
+                Position: "3",
+                Team: {
+                  Player1: "Jogador L",
+                  Player2: "Jogador G"
+                },
+                GamesPlayed:"3",
+                GamesWon : "1",
+                GamesLost : "2"
+                
+              }
+              
+            ],
+            Results:[
+              {
+                GameID: "4.3.3",
+                Team1: {
+                  Player1: "Ana",
+                  Player2: "Ricardo"
+                },
+                Team2: {
+                  Player1: "Eduarda",
+                  Player2: "Arantes"
+                },
+                Results:[
+                  "7-6","4-6", "10-7"
+                ]
+                
+              }
+
+
+            ]
+   
+      }
         ]
       }
     };
@@ -273,8 +352,14 @@
   createApp({
     data() {
       return {
-        tournamentInfo: {},
-        timestamp: ''
+        tournamentInfo: {
+          Schedule:[]
+        },
+        timestamp: '',
+        currentScreenIndex: 1,
+        currentCourtIndex: 0,
+        currentCategoryIndex:0,
+  
       }
     },
     mounted() {
@@ -283,13 +368,75 @@
           this.tournamentInfo = data.TournamentInfo;
     },
     created() {
-      setInterval(this.GetNow, 1000);
-    },
-    computed(){
+      this.GetNow(); // Initialize the timestamp
+      this.startRotation();
 
+      
+      
     },
 
     methods: {
+
+      startRotation() {
+        if (this.intervalId) {
+          clearInterval(this.intervalId); // Clear the previous interval
+        }
+        if (this.currentScreenIndex === 0) {
+          this.intervalId = setInterval(this.rotateProperties, 10000); // 10 seconds
+        } else if (this.currentScreenIndex === 1) {
+          this.intervalId = setInterval(this.rotateProperties, 5000); // 5 seconds
+        }
+      },
+
+      rotateProperties() {
+        this.GetNow(); // Initialize the timestamp
+
+        //handle multiple courts for screen 0
+      if(this.currentScreenIndex == 0)
+      {
+        minCourtIndex = this.currentCourtIndex +(this.tournamentInfo.ScheduleShowPerLine*2);
+
+        if(this.tournamentInfo.Schedule.length > minCourtIndex)
+        {
+          this.currentCourtIndex = minCourtIndex
+        }
+        else
+        {
+          this.currentScreenIndex++;
+          this.currentCourtIndex  = 0;
+
+        }
+      }
+      else
+      {
+
+        if(this.tournamentInfo.Classifications.length > this.currentCategoryIndex+1)
+        {
+          this.currentCategoryIndex++;
+        }
+        else
+        {
+          this.currentScreenIndex++;
+          this.currentCategoryIndex  = 0;
+
+        }
+
+      }
+
+
+
+        // this.currentScreenIndex++;
+        if (this.currentScreenIndex >= 2) {
+          this.currentScreenIndex = 0;
+        }
+        console.log("current screen index: %s",this.currentScreenIndex);
+        console.log("current court index: %s",this.currentCourtIndex);
+        console.log("current category index: %s",this.currentCategoryIndex);
+        this.startRotation();
+
+
+
+      },
       GetNow: function() {
         const today = new Date();
         const hours = today.getHours();
@@ -300,9 +447,14 @@
         }
       
         const time = hours + ":" + minutes;
-        this.timestamp = time;s
+        this.timestamp = time;
       }
-  }
+  },
+  computed: {
+    currentProperty() {
+      return this.properties[this.currentScreenIndex];
+    },
+  },
 
   }).mount('#app')
 
