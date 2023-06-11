@@ -656,7 +656,7 @@
 
         }
       }
-      else
+      else if (this.currentScreenIndex == 1)
       {
 
         if(this.tournamentInfo.Classifications.length > this.currentCategoryIndex+1)
