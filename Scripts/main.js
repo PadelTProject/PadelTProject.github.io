@@ -607,12 +607,14 @@
         timestamp: '',
         currentScreenIndex: 1,
         currentCourtIndex: 0,
-        currentCategoryIndex:0,
+        currentCategoryIndex:2,
+        show2ndPageOfPlayoffs: 0
   
       }
     },
     mounted() {
       console.log('Mounted!');
+      console.log(data.TournamentInfo);
 
           this.tournamentInfo = data.TournamentInfo;
     },
@@ -627,6 +629,7 @@
     methods: {
 
       startRotation() {
+        return;
         if (this.intervalId) {
           clearInterval(this.intervalId); // Clear the previous interval
         }
@@ -661,12 +664,22 @@
 
         if(this.tournamentInfo.Classifications.length > this.currentCategoryIndex+1)
         {
-          this.currentCategoryIndex++;
+          if(this.tournamentInfo.Classifications[this.currentCategoryIndex].Phase == "Playoffs32" && this.show2ndPageOfPlayoffs == 0)
+          {
+            this.show2ndPageOfPlayoffs = 1;
+          }
+          else
+          {
+            this.show2ndPageOfPlayoffs = 0;
+            this.currentCategoryIndex++;
+          }
+          
         }
         else
         {
           this.currentScreenIndex++;
           this.currentCategoryIndex  = 0;
+          this.show2ndPageOfPlayoffs = 0;
 
         }
 

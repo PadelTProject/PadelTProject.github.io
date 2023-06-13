@@ -37,7 +37,7 @@
 
 
 
-  <div class="content">
+  <div class="content" v-bind:class="{ 'basicPlayoffContent': 1 === currentScreenIndex }">
     <div class="container-fluid h-100">
       <div v-if="0 === currentScreenIndex" class="row">
                
@@ -79,7 +79,7 @@
       </div>
     </div>
       <div v-if="1 === currentScreenIndex" v-for="(field, index) in tournamentInfo.Classifications" :key="index" class="row">
-        <template v-if="index === currentCategoryIndex">
+        <template v-if="index === currentCategoryIndex && field.Phase === 'Groups'">
 
         <div class="col-sm-6">
           <div class="classificationHeader rounded">
@@ -113,7 +113,7 @@
         </div>
         <div class="col-sm-6">
           <div class="classificationHeader rounded">
-            M4 - Grupo A - Jogos Decorridos
+            {{field.Category}} - Grupo {{field.Group}} - Jogos Decorridos
           </div>
           <div class="row align-items-center m-auto w-100 classificationDetailsHeader">
             <div class="col-sm-2 classificationPosition rounded-left"> Jogo</div>
@@ -137,6 +137,274 @@
           </div>
         
         </div>
+        </template>
+        <template v-if="index === currentCategoryIndex && (field.Phase === 'Playoff32' || field.Phase === 'Playoff16')">
+          <div class="row w-100 ml-0 mr-0">
+
+            <div class="col-sm-12">
+              <div class="basicPlayoffHeader rounded">
+                {{ field.Category }} - {{ field.Phase == "Playoff32" ? '32 Avos De Final' : '' }}
+              </div>
+              
+            </div>
+    
+            <div class="col-sm-6">
+    
+              <div class="row align-items-center m-auto w-100 basicPlayoffDetailsHeader">
+                <div class="col-sm-2 basicPlayoffPosition rounded-left"> Jogo</div>
+                <div class="col-sm-7 basicPlayoffDetailsTeams">VS</div>
+                <div class="col-sm-3 basicPlayoffDetailsResults rounded-right">Resultado</div>
+              </div>
+    
+              <div class="row align-items-center m-auto w-100 basicPlayoffDetailsRow">
+                <div class="col-sm-2 basicPlayoffPosition rounded-left"> 4.1.1</div>
+                <div class="col-sm-7 basicPlayoffDetailsTeams">
+                  <div class="row align-items-center h-100">
+                    <div class="col-sm-6">
+                      <div class="text-left pl-3">Jogador A <br /> Jogador B</div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="text-right pr-3">Jogador C <br /> Jogador D</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-3 basicPlayoffDetailsResults rounded-right">9-6</div>
+              </div>
+              <div class="row align-items-center m-auto w-100 basicPlayoffDetailsRow">
+                <div class="col-sm-2 basicPlayoffPosition rounded-left"> 4.1.2</div>
+                <div class="col-sm-7 basicPlayoffDetailsTeams">
+                  <div class="row align-items-center h-100">
+                    <div class="col-sm-6">
+                      <div class="text-left pl-3">Jogador A <br /> Jogador B</div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="text-right pr-3">Jogador C <br /> Jogador D</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-3 basicPlayoffDetailsResults rounded-right">8-9</div>
+              </div>
+              <div class="row align-items-center m-auto w-100 basicPlayoffDetailsRow">
+                <div class="col-sm-2 basicPlayoffPosition rounded-left"> 4.1.3</div>
+                <div class="col-sm-7 basicPlayoffDetailsTeams">
+                  <div class="row align-items-center h-100">
+                    <div class="col-sm-6">
+                      <div class="text-left pl-3">Jogador A <br /> Jogador B</div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="text-right pr-3">Jogador C <br /> Jogador D</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-3 basicPlayoffDetailsResults rounded-right">
+    
+                  <div class="row align-items-center h-100">
+                    <div class="col-sm-6">6-1</div>
+                    <div class="col-sm-6">6-3</div>
+                  </div>
+    
+                </div>
+              </div>
+              <div class="row align-items-center m-auto w-100 basicPlayoffDetailsRow">
+                <div class="col-sm-2 basicPlayoffPosition rounded-left"> 4.1.2</div>
+                <div class="col-sm-7 basicPlayoffDetailsTeams">
+                  <div class="row align-items-center h-100">
+                    <div class="col-sm-6">
+                      <div class="text-left pl-3">Jogador A <br /> Jogador B</div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="text-right pr-3">Jogador C <br /> Jogador D</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-3 basicPlayoffDetailsResults rounded-right">8-9</div>
+              </div>
+              <div class="row align-items-center m-auto w-100 basicPlayoffDetailsRow">
+                <div class="col-sm-2 basicPlayoffPosition rounded-left"> 4.1.2</div>
+                <div class="col-sm-7 basicPlayoffDetailsTeams">
+                  <div class="row align-items-center h-100">
+                    <div class="col-sm-6">
+                      <div class="text-left pl-3">Jogador A <br /> Jogador B</div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="text-right pr-3">Jogador C <br /> Jogador D</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-3 basicPlayoffDetailsResults rounded-right">8-9</div>
+              </div>
+              <div class="row align-items-center m-auto w-100 basicPlayoffDetailsRow">
+                <div class="col-sm-2 basicPlayoffPosition rounded-left"> 4.1.2</div>
+                <div class="col-sm-7 basicPlayoffDetailsTeams">
+                  <div class="row align-items-center h-100">
+                    <div class="col-sm-6">
+                      <div class="text-left pl-3">Jogador A <br /> Jogador B</div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="text-right pr-3">Jogador C <br /> Jogador D</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-3 basicPlayoffDetailsResults rounded-right">8-9</div>
+              </div>
+              <div class="row align-items-center m-auto w-100 basicPlayoffDetailsRow">
+                <div class="col-sm-2 basicPlayoffPosition rounded-left"> 4.1.2</div>
+                <div class="col-sm-7 basicPlayoffDetailsTeams">
+                  <div class="row align-items-center h-100">
+                    <div class="col-sm-6">
+                      <div class="text-left pl-3">Jogador A <br /> Jogador B</div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="text-right pr-3">Jogador C <br /> Jogador D</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-3 basicPlayoffDetailsResults rounded-right">8-9</div>
+              </div>
+              <div class="row align-items-center m-auto w-100 basicPlayoffDetailsRow">
+                <div class="col-sm-2 basicPlayoffPosition rounded-left"> 4.1.4</div>
+                <div class="col-sm-7 basicPlayoffDetailsTeams">
+                  <div class="row align-items-center h-100">
+                    <div class="col-sm-6">
+                      <div class="text-left pl-3">Jogador X<br /> Jogador Y</div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="text-right pr-3">Tartaruga Genial <br /> Jogador D</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-3 basicPlayoffDetailsResults rounded-right">
+                  <div class="row align-items-center h-100">
+                    <div class="col-sm-4">6-1</div>
+                    <div class="col-sm-4">4-6</div>
+                    <div class="col-sm-4">7-6</div>
+                  </div>
+                </div>
+              </div>
+    
+            </div>
+    
+            <div class="col-sm-6">
+    
+              <div class="row align-items-center m-auto w-100 basicPlayoffDetailsHeader">
+                <div class="col-sm-2 basicPlayoffPosition rounded-left"> Jogo</div>
+                <div class="col-sm-7 basicPlayoffDetailsTeams">VS</div>
+                <div class="col-sm-3 basicPlayoffDetailsResults rounded-right">Resultado</div>
+              </div>
+    
+              <div class="row align-items-center m-auto w-100 basicPlayoffDetailsRow">
+                <div class="col-sm-2 basicPlayoffPosition rounded-left"> 4.1.1</div>
+                <div class="col-sm-7 basicPlayoffDetailsTeams">
+                  <div class="row align-items-center h-100">
+                    <div class="col-sm-6">
+                      <div class="text-left pl-3">Jogador A <br /> Jogador B</div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="text-right pr-3">Jogador C <br /> Jogador D</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-3 basicPlayoffDetailsResults rounded-right">9-6</div>
+              </div>
+              <div class="row align-items-center m-auto w-100 basicPlayoffDetailsRow">
+                <div class="col-sm-2 basicPlayoffPosition rounded-left"> 4.1.2</div>
+                <div class="col-sm-7 basicPlayoffDetailsTeams">
+                  <div class="row align-items-center h-100">
+                    <div class="col-sm-6">
+                      <div class="text-left pl-3">Jogador A <br /> Jogador B</div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="text-right pr-3">Jogador C <br /> Jogador D</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-3 basicPlayoffDetailsResults rounded-right">8-9</div>
+              </div>
+              <div class="row align-items-center m-auto w-100 basicPlayoffDetailsRow">
+                <div class="col-sm-2 basicPlayoffPosition rounded-left"> 4.1.2</div>
+                <div class="col-sm-7 basicPlayoffDetailsTeams">
+                  <div class="row align-items-center h-100">
+                    <div class="col-sm-6">
+                      <div class="text-left pl-3">Jogador A <br /> Jogador B</div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="text-right pr-3">Jogador C <br /> Jogador D</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-3 basicPlayoffDetailsResults rounded-right">8-9</div>
+              </div>
+              <div class="row align-items-center m-auto w-100 basicPlayoffDetailsRow">
+                <div class="col-sm-2 basicPlayoffPosition rounded-left"> 4.1.2</div>
+                <div class="col-sm-7 basicPlayoffDetailsTeams">
+                  <div class="row align-items-center h-100">
+                    <div class="col-sm-6">
+                      <div class="text-left pl-3">Jogador A <br /> Jogador B</div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="text-right pr-3">Jogador C <br /> Jogador D</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-3 basicPlayoffDetailsResults rounded-right">8-9</div>
+              </div>
+              <div class="row align-items-center m-auto w-100 basicPlayoffDetailsRow">
+                <div class="col-sm-2 basicPlayoffPosition rounded-left"> 4.1.2</div>
+                <div class="col-sm-7 basicPlayoffDetailsTeams">
+                  <div class="row align-items-center h-100">
+                    <div class="col-sm-6">
+                      <div class="text-left pl-3">Jogador A <br /> Jogador B</div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="text-right pr-3">Jogador C <br /> Jogador D</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-3 basicPlayoffDetailsResults rounded-right">8-9</div>
+              </div>
+              <div class="row align-items-center m-auto w-100 basicPlayoffDetailsRow">
+                <div class="col-sm-2 basicPlayoffPosition rounded-left"> 4.1.3</div>
+                <div class="col-sm-7 basicPlayoffDetailsTeams">
+                  <div class="row align-items-center h-100">
+                    <div class="col-sm-6">
+                      <div class="text-left pl-3">Jogador A <br /> Jogador B</div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="text-right pr-3">Jogador C <br /> Jogador D</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-3 basicPlayoffDetailsResults rounded-right">
+    
+                  <div class="row align-items-center h-100">
+                    <div class="col-sm-6">6-1</div>
+                    <div class="col-sm-6">6-3</div>
+                  </div>
+    
+                </div>
+              </div>
+              <div class="row align-items-center m-auto w-100 basicPlayoffDetailsRow">
+                <div class="col-sm-2 basicPlayoffPosition rounded-left"> 4.1.4</div>
+                <div class="col-sm-7 basicPlayoffDetailsTeams">
+                  <div class="row align-items-center h-100">
+                    <div class="col-sm-6">
+                      <div class="text-left pl-3">Jogador X<br /> Jogador Y</div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="text-right pr-3">Tartaruga Genial <br /> Jogador D</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-3 basicPlayoffDetailsResults rounded-right">
+                  <div class="row align-items-center h-100">
+                    <div class="col-sm-4">6-1</div>
+                    <div class="col-sm-4">4-6</div>
+                    <div class="col-sm-4">7-6</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            </div>
         </template>
 
       </div>
