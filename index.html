@@ -7,7 +7,10 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
   <link rel="stylesheet" href="Styles/main.css">
+  <title>PadelTeams</title>
 
 
 
@@ -19,16 +22,15 @@
   <div class="header">
     <div class="container-fluid h-100">
       <div class="row align-items-center h-100">
-        <div class="col-sm-2"><img class="rounded-circle img-fluid logo" alt="clubLogo"
-            src="https://www.padelteams.pt/data/img/clogo_1771_pdieuezx1679485560.png" /></div>
+        <div class="col-sm-2"><img class="rounded-circle img-fluid logo" alt="clubLogo" :src="GetLogoUrl(tournamentInfo.clubs.MainClub.Logo)" /></div>
         <div class="col-sm-8">
-          <h1>{{ tournamentInfo.Name }}</h1>
+          <h1>{{ tournamentInfo.name }}</h1>
         </div>
         <div class="col-sm-2">
           <div class="alert alert-dark h-100 w-100 mb-0" role="alert">
             Jogos decorridos
             <br />
-            {{ tournamentInfo.GamesDone }} de {{ tournamentInfo.GamesTotal }}
+            {{ tournamentInfo.gamesDone }} de {{ tournamentInfo.gamesTotal }}
           </div>
         </div>
       </div>
@@ -39,22 +41,22 @@
 
   <div class="content" v-bind:class="{ 'basicPlayoffContent': 1 === currentScreenIndex }">
     <div class="container-fluid h-100">
-      <div v-if="0 === currentScreenIndex" class="row">
+      <div v-if="tournamentInfo.dataToShow.type === 'schedule'" class="row">
                
-          <div v-for="(field, index) in tournamentInfo.Schedule.slice(currentCourtIndex,currentCourtIndex+tournamentInfo.ScheduleShowPerLine*2)" :key="index" 
+          <div v-for="(field, index) in tournamentInfo.dataToShow.scheduleData" :key="index" 
           class ="mt-3"
               v-bind:class="{
-                'col-sm-4': tournamentInfo.ScheduleShowPerLine === '3',
-                'col-sm-3': tournamentInfo.ScheduleShowPerLine === '4',
-                'col-sm-6': tournamentInfo.ScheduleShowPerLine === '2'
+                'col-sm-4': tournamentInfo.dataToShow.scheduleShowPerLine === '3',
+                'col-sm-3': tournamentInfo.dataToShow.scheduleShowPerLine === '4',
+                'col-sm-6': tournamentInfo.dataToShow.scheduleShowPerLine === '2'
             }"
               >
           <div class="scheduleHeader rounded">
-            {{ field.CourtName }}
+            Campo {{ field.CourtName }}
           </div>
           <div class="scheduleDetails ">
             <div class="content-fluid">
-              <div class="row align-items-center m-auto w-100 scheduleDetailsRow" v-for="schedule in field.Games">
+              <div class="row align-items-center m-auto w-100 scheduleDetailsRow" v-for="schedule in (tournamentInfo.dataToShow.scheduleShowFullScreen ? field.Games.slice(0, 7) : field.Games.slice(0, 3))">
                 <div class="col-sm-2 scheduleDetailsTime rounded"> {{schedule.StartTime}}</div>
                 <div class="col-sm-10 scheduleDetailsTeams">
                   <div class="scheduleDetailsPlayer align-items-center h-100 rounded">
@@ -78,12 +80,11 @@
         
       </div>
     </div>
-      <div v-if="1 === currentScreenIndex" v-for="(field, index) in tournamentInfo.Classifications" :key="index" class="row">
-        <template v-if="index === currentCategoryIndex && field.Phase === 'Groups'">
-
+        <template v-if="tournamentInfo.dataToShow.type === 'classification-groupphase'">
+          <div class="row">
         <div class="col-sm-6">
           <div class="classificationHeader rounded">
-            {{field.Category}} - Grupo {{field.Group}} - Classificação
+            {{tournamentInfo.dataToShow.category}} - {{tournamentInfo.dataToShow.groupName}} - Classificação
           </div>
           <div class="row align-items-center m-auto w-100 classificationDetailsHeader">
             <div class="col-sm-3 classificationPosition rounded-left"> Posição</div>
@@ -97,7 +98,7 @@
             </div>
           </div>
 
-          <div class="row align-items-center m-auto w-100 classificationDetailsRow" v-for="(data, classIndex) in field.Standings" :key="classIndex"> 
+          <div class="row align-items-center m-auto w-100 classificationDetailsRow" v-for="(data, classIndex) in tournamentInfo.dataToShow.groupStandings" :key="classIndex"> 
             <div class="col-sm-3 classificationPosition rounded-left"> {{data.Position}}º</div>
             <div class="col-sm-6 classificationDetailsTeams">{{data.Team.Player1}}<br />{{data.Team.Player2}}</div>
             <div class="col-sm-3 classificationDetailsResults rounded-right">
@@ -113,7 +114,7 @@
         </div>
         <div class="col-sm-6">
           <div class="classificationHeader rounded">
-            {{field.Category}} - Grupo {{field.Group}} - Jogos Decorridos
+            {{tournamentInfo.dataToShow.category}} - Grupo {{tournamentInfo.dataToShow.groupName}} - Jogos Decorridos
           </div>
           <div class="row align-items-center m-auto w-100 classificationDetailsHeader">
             <div class="col-sm-2 classificationPosition rounded-left"> Jogo</div>
@@ -121,7 +122,7 @@
             <div class="col-sm-3 classificationDetailsResults rounded-right">Resultado</div>
           </div>
 
-          <div class="row align-items-center m-auto w-100 classificationDetailsRow" v-for="(data, classIndex) in field.Results" :key="classIndex">
+          <div class="row align-items-center m-auto w-100 classificationDetailsRow" v-for="(data, classIndex) in  tournamentInfo.dataToShow.groupResults" :key="classIndex">
             <div class="col-sm-2 classificationPosition rounded-left"> {{data.GameID}}</div>
             <div class="col-sm-7 classificationDetailsTeams">
               <div class="row align-items-center h-100">
@@ -137,8 +138,10 @@
           </div>
         
         </div>
+      </div>
+
         </template>
-        <template v-if="index === currentCategoryIndex && (field.Phase === 'Playoff32' || field.Phase === 'Playoff16')">
+        <!-- <template v-if="">
           <div class="row w-100 ml-0 mr-0">
 
             <div class="col-sm-12">
@@ -405,9 +408,8 @@
               </div>
             </div>
             </div>
-        </template>
+        </template> -->
 
-      </div>
     </div>
   </div>
 

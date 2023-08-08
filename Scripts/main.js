@@ -2,703 +2,53 @@
 
 
 
-
-
-  data = {
-    TournamentInfo: {
-      Name: "#023 STRONG PADEL STORE OPEN",
-      GamesTotal: "70",
-      GamesDone: "35",
-      LastUpdate: "23:34",
-      Clubs: {
-        MainClub: {
-          Name: "Braga Padel Social Cup",
-          Logo: "https://www.padelteams.pt/data/img/clogo_1771_pdieuezx1679485560.png"
-        },
-        OtherClubs: []
-      },
-      ScheduleShowPerLine: "3",
-      Schedule: [
-        {
-          CourtName: "Campo 1",
-          Games: [
-            {
-              StartTime: "09:00",
-              TeamHome: {
-                Player1: "Jogador A",
-                Player2: "Jogador B"
-              },
-              TeamAway: {
-                Player1: "Jogador C",
-                Player2: "Jogador D"
-              }
-            },
-            {
-              StartTime: "10:30",
-              TeamHome: {
-                Player1: "Jogador E",
-                Player2: "Jogador F"
-              },
-              TeamAway: {
-                Player1: "Jogador G",
-                Player2: "Jogador H"
-              }
-            },
-            {
-              StartTime: "11:30",
-              TeamHome: {
-                Player1: "Jogador HG",
-                Player2: "Jogador A"
-              },
-              TeamAway: {
-                Player1: "Jogador Z",
-                Player2: "Jogador T"
-              }
-            }
-          ]
-        },
-        {
-          CourtName: "Campo 2",
-          Games: [
-            {
-              StartTime: "09:00",
-              TeamHome: {
-                Player1: "Jogador I",
-                Player2: "Jogador J"
-              },
-              TeamAway: {
-                Player1: "Jogador K",
-                Player2: "Jogador L"
-              }
-            },
-            {
-              StartTime: "10:30",
-              TeamHome: {
-                Player1: "Jogador M",
-                Player2: "Jogador N"
-              },
-              TeamAway: {
-                Player1: "Jogador O",
-                Player2: "Jogador P"
-              }
-            }
-          ]
-        },
-        {
-          CourtName: "Campo 3",
-          Games: [
-            {
-              StartTime: "09:00",
-              TeamHome: {
-                Player1: "Jogador I",
-                Player2: "Jogador J"
-              },
-              TeamAway: {
-                Player1: "Jogador K",
-                Player2: "Jogador L"
-              }
-            },
-            {
-              StartTime: "10:30",
-              TeamHome: {
-                Player1: "Jogador M",
-                Player2: "Jogador N"
-              },
-              TeamAway: {
-                Player1: "Jogador O",
-                Player2: "Jogador P"
-              }
-            }
-          ]
-        },
-        {
-          CourtName: "Campo 4",
-          Games: [
-            {
-              StartTime: "09:00",
-              TeamHome: {
-                Player1: "Jogador I",
-                Player2: "Jogador J"
-              },
-              TeamAway: {
-                Player1: "Jogador K",
-                Player2: "Jogador L"
-              }
-            },
-            {
-              StartTime: "10:30",
-              TeamHome: {
-                Player1: "Jogador M",
-                Player2: "Jogador N"
-              },
-              TeamAway: {
-                Player1: "Jogador O",
-                Player2: "Jogador P"
-              }
-            }
-          ]
-        },
-        {
-          CourtName: "Campo 5",
-          Games: [
-            {
-              StartTime: "09:00",
-              TeamHome: {
-                Player1: "Jogador I",
-                Player2: "Jogador J"
-              },
-              TeamAway: {
-                Player1: "Jogador K",
-                Player2: "Jogador L"
-              }
-            },
-            {
-              StartTime: "10:30",
-              TeamHome: {
-                Player1: "Jogador M",
-                Player2: "Jogador N"
-              },
-              TeamAway: {
-                Player1: "Jogador O",
-                Player2: "Jogador P"
-              }
-            },
-            {
-              StartTime: "11:30",
-              TeamHome: {
-                Player1: "Jogador M",
-                Player2: "Jogador N"
-              },
-              TeamAway: {
-                Player1: "Jogador O",
-                Player2: "Jogador P"
-              }
-            }
-          ]
-        },
-        {
-          CourtName: "Campo 6",
-          Games: [
-            {
-              StartTime: "09:00",
-              TeamHome: {
-                Player1: "Jogador I",
-                Player2: "Jogador J"
-              },
-              TeamAway: {
-                Player1: "Jogador K",
-                Player2: "Jogador L"
-              }
-            },
-            {
-              StartTime: "10:30",
-              TeamHome: {
-                Player1: "Jogador M",
-                Player2: "Jogador N"
-              },
-              TeamAway: {
-                Player1: "Jogador O",
-                Player2: "Jogador P"
-              }
-            }
-          ]
-        }
-      ],
-      Classifications: [
-          {
-                Category:"M4",
-                Phase:"Groups",
-                Group : "A",
-                Standings: [
-                  {
-                    Position: "1",
-                    Team: {
-                      Player1: "Ricardo",
-                      Player2: "Ana"
-                    },
-                    GamesPlayed:"3",
-                    GamesWon : "3",
-                    GamesLost : "0"
-                    
-                  },
-                  {
-                    Position: "2",
-                    Team: {
-                      Player1: "Jogador A",
-                      Player2: "Jogador B"
-                    },
-                    GamesPlayed:"3",
-                    GamesWon : "2",
-                    GamesLost : "1"
-                    
-                  },
-                  {
-                    Position: "3",
-                    Team: {
-                      Player1: "Jogador L",
-                      Player2: "Jogador G"
-                    },
-                    GamesPlayed:"3",
-                    GamesWon : "1",
-                    GamesLost : "2"
-                    
-                  }
-                  
-                ],
-                Results:[
-                  {
-                    GameID: "4.3.3",
-                    Team1: {
-                      Player1: "Ana",
-                      Player2: "Ricardo"
-                    },
-                    Team2: {
-                      Player1: "Eduarda",
-                      Player2: "Arantes"
-                    },
-                    Results:[
-                      "7-6","4-6", "10-7"
-                    ]
-                    
-                  }
-
-
-                ]
-       
-          },
-          {
-            Category:"M3",
-            Phase:"Groups",
-            Group : "A",
-            Standings: [
-              {
-                Position: "1",
-                Team: {
-                  Player1: "Ricardo",
-                  Player2: "Ana"
-                },
-                GamesPlayed:"3",
-                GamesWon : "3",
-                GamesLost : "0"
-                
-              },
-              {
-                Position: "2",
-                Team: {
-                  Player1: "Jogador A",
-                  Player2: "Jogador B"
-                },
-                GamesPlayed:"3",
-                GamesWon : "2",
-                GamesLost : "1"
-                
-              },
-              {
-                Position: "3",
-                Team: {
-                  Player1: "Jogador L",
-                  Player2: "Jogador G"
-                },
-                GamesPlayed:"3",
-                GamesWon : "1",
-                GamesLost : "2"
-                
-              }
-              
-            ],
-            Results:[
-              {
-                GameID: "4.3.3",
-                Team1: {
-                  Player1: "Ana",
-                  Player2: "Ricardo"
-                },
-                Team2: {
-                  Player1: "Eduarda",
-                  Player2: "Arantes"
-                },
-                Results:[
-                  "7-6","4-6", "10-7"
-                ]
-                
-              }
-
-
-            ]
-   
-      },
-      {
-        Category:"M2",
-        Phase:"Playoff32",        
-        Results:[
-          {
-            GameID: "4.3.3",
-            Team1: {
-              Player1: "Ana",
-              Player2: "Ricardo"
-            },
-            Team2: {
-              Player1: "Eduarda",
-              Player2: "Arantes"
-            },
-            Results:[
-              "7-6","4-6", "10-7"
-            ]
-            
-          },
-          {
-            GameID: "4.3.3",
-            Team1: {
-              Player1: "Ana",
-              Player2: "Ricardo"
-            },
-            Team2: {
-              Player1: "Eduarda",
-              Player2: "Arantes"
-            },
-            Results:[
-              "7-6","4-6", "10-7"
-            ]
-            
-          },
-          {
-            GameID: "4.3.3",
-            Team1: {
-              Player1: "Ana",
-              Player2: "Ricardo"
-            },
-            Team2: {
-              Player1: "Eduarda",
-              Player2: "Arantes"
-            },
-            Results:[
-              "7-6","4-6", "10-7"
-            ]
-            
-          },
-          {
-            GameID: "4.3.3",
-            Team1: {
-              Player1: "Ana",
-              Player2: "Ricardo"
-            },
-            Team2: {
-              Player1: "Eduarda",
-              Player2: "Arantes"
-            },
-            Results:[
-              "7-6","4-6", "10-7"
-            ]
-            
-          },
-          {
-            GameID: "4.3.3",
-            Team1: {
-              Player1: "Ana",
-              Player2: "Ricardo"
-            },
-            Team2: {
-              Player1: "Eduarda",
-              Player2: "Arantes"
-            },
-            Results:[
-              "7-6","4-6", "10-7"
-            ]
-            
-          },
-          {
-            GameID: "4.3.3",
-            Team1: {
-              Player1: "Ana",
-              Player2: "Ricardo"
-            },
-            Team2: {
-              Player1: "Eduarda",
-              Player2: "Arantes"
-            },
-            Results:[
-              "7-6","4-6", "10-7"
-            ]
-            
-          },
-          {
-            GameID: "4.3.3",
-            Team1: {
-              Player1: "Ana",
-              Player2: "Ricardo"
-            },
-            Team2: {
-              Player1: "Eduarda",
-              Player2: "Arantes"
-            },
-            Results:[
-              "7-6","4-6", "10-7"
-            ]
-            
-          },
-          {
-            GameID: "4.3.3",
-            Team1: {
-              Player1: "Ana",
-              Player2: "Ricardo"
-            },
-            Team2: {
-              Player1: "Eduarda",
-              Player2: "Arantes"
-            },
-            Results:[
-              "7-6","4-6", "10-7"
-            ]
-            
-          },
-          {
-            GameID: "4.3.3",
-            Team1: {
-              Player1: "Ana",
-              Player2: "Ricardo"
-            },
-            Team2: {
-              Player1: "Eduarda",
-              Player2: "Arantes"
-            },
-            Results:[
-              "7-6","4-6", "10-7"
-            ]
-            
-          },
-          {
-            GameID: "4.3.3",
-            Team1: {
-              Player1: "Ana",
-              Player2: "Ricardo"
-            },
-            Team2: {
-              Player1: "Eduarda",
-              Player2: "Arantes"
-            },
-            Results:[
-              "7-6","4-6", "10-7"
-            ]
-            
-          },
-          {
-            GameID: "4.3.3",
-            Team1: {
-              Player1: "Ana",
-              Player2: "Ricardo"
-            },
-            Team2: {
-              Player1: "Eduarda",
-              Player2: "Arantes"
-            },
-            Results:[
-              "7-6","4-6", "10-7"
-            ]
-            
-          },
-          {
-            GameID: "4.3.3",
-            Team1: {
-              Player1: "Ana",
-              Player2: "Ricardo"
-            },
-            Team2: {
-              Player1: "Eduarda",
-              Player2: "Arantes"
-            },
-            Results:[
-              "7-6","4-6", "10-7"
-            ]
-            
-          },
-          {
-            GameID: "4.3.3",
-            Team1: {
-              Player1: "Ana",
-              Player2: "Ricardo"
-            },
-            Team2: {
-              Player1: "Eduarda",
-              Player2: "Arantes"
-            },
-            Results:[
-              "7-6","4-6", "10-7"
-            ]
-            
-          },
-          {
-            GameID: "4.3.3",
-            Team1: {
-              Player1: "Ana",
-              Player2: "Ricardo"
-            },
-            Team2: {
-              Player1: "Eduarda",
-              Player2: "Arantes"
-            },
-            Results:[
-              "7-6","4-6", "10-7"
-            ]
-            
-          },
-          {
-            GameID: "4.3.3",
-            Team1: {
-              Player1: "Ana",
-              Player2: "Ricardo"
-            },
-            Team2: {
-              Player1: "Eduarda",
-              Player2: "Arantes"
-            },
-            Results:[
-              "7-6","4-6", "10-7"
-            ]
-            
-          },
-          {
-            GameID: "4.3.3",
-            Team1: {
-              Player1: "Ana",
-              Player2: "Ricardo"
-            },
-            Team2: {
-              Player1: "Eduarda",
-              Player2: "Arantes"
-            },
-            Results:[
-              "7-6","4-6", "10-7"
-            ]
-            
-          }
-
-
-        ]
-
-  }
-        ]
-      }
-    };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   
   const { createApp } = Vue
-  createApp({
+  createApp(
+    {
+
+    
     data() {
       return {
         tournamentInfo: {
-          Schedule:[]
+          clubs: {
+            MainClub: {
+              Logo: '',
+              Name: ''
+            },
+            otherClubs: []
+          },
+          dataToShow: {},
+          timestamp: '',
         },
-        timestamp: '',
-        currentScreenIndex: 1,
-        currentCourtIndex: 0,
-        currentCategoryIndex:2,
-        show2ndPageOfPlayoffs: 0
-  
+        currentScreen: 0, 
+        tournamentCode: '',
+        apiDataTimingCounter: 999
+
       }
     },
     mounted() {
-      console.log('Mounted!');
-      console.log(data.TournamentInfo);
-
-          this.tournamentInfo = data.TournamentInfo;
+         this.RunLogic();
+          
     },
     created() {
       this.GetNow(); // Initialize the timestamp
-      this.startRotation();
-
-      
+      let uri = window.location.search.substring(1); 
+      let params = new URLSearchParams(uri);
+      this.tournamentCode = params.get("code");
+      console.log()
       
     },
 
     methods: {
 
-      startRotation() {
-        return;
-        if (this.intervalId) {
-          clearInterval(this.intervalId); // Clear the previous interval
-        }
-        if (this.currentScreenIndex === 0) {
-          this.intervalId = setInterval(this.rotateProperties, 10000); // 10 seconds
-        } else if (this.currentScreenIndex === 1) {
-          this.intervalId = setInterval(this.rotateProperties, 5000); // 5 seconds
-        }
+      GetLogoUrl(logoPath) {
+        // const domain = 'https://www.padelteams.pt';
+        const domain = '.';
+        const fullUrl = domain + logoPath;
+        return fullUrl;
       },
 
-      rotateProperties() {
-        this.GetNow(); // Initialize the timestamp
-
-        //handle multiple courts for screen 0
-      if(this.currentScreenIndex == 0)
-      {
-        minCourtIndex = this.currentCourtIndex +(this.tournamentInfo.ScheduleShowPerLine*2);
-
-        if(this.tournamentInfo.Schedule.length > minCourtIndex)
-        {
-          this.currentCourtIndex = minCourtIndex
-        }
-        else
-        {
-          this.currentScreenIndex++;
-          this.currentCourtIndex  = 0;
-
-        }
-      }
-      else if (this.currentScreenIndex == 1)
-      {
-
-        if(this.tournamentInfo.Classifications.length > this.currentCategoryIndex+1)
-        {
-          if(this.tournamentInfo.Classifications[this.currentCategoryIndex].Phase == "Playoffs32" && this.show2ndPageOfPlayoffs == 0)
-          {
-            this.show2ndPageOfPlayoffs = 1;
-          }
-          else
-          {
-            this.show2ndPageOfPlayoffs = 0;
-            this.currentCategoryIndex++;
-          }
-          
-        }
-        else
-        {
-          this.currentScreenIndex++;
-          this.currentCategoryIndex  = 0;
-          this.show2ndPageOfPlayoffs = 0;
-
-        }
-
-      }
-
-
-
-        // this.currentScreenIndex++;
-        if (this.currentScreenIndex >= 2) {
-          this.currentScreenIndex = 0;
-        }
-        console.log("current screen index: %s",this.currentScreenIndex);
-        console.log("current court index: %s",this.currentCourtIndex);
-        console.log("current category index: %s",this.currentCategoryIndex);
-        this.startRotation();
-
-
-
-      },
       GetNow: function() {
         const today = new Date();
         const hours = today.getHours();
@@ -710,12 +60,190 @@
       
         const time = hours + ":" + minutes;
         this.timestamp = time;
-      }
+      },
+      
+      GetDataFromAPI: function()
+      {
+        if(this.apiDataTimingCounter > 6)
+        {
+          this.apiDataTimingCounter = 0;
+
+          return axios({ url: 'https://padelteams.site/api/v1/tournament-info?code=' + this.tournamentCode, method: 'get' })
+            .then(response => {
+              if(response.data.success == "1")
+              {            
+                this.rawdata = response.data.data.TournamentInfo;
+              }
+              else
+              {
+                console.log('An error occurred while fetching data.');
+              }
+                
+              this.PrepareTournamentData();
+              this.PrepareGamesData();  
+            })
+            .catch(error => {
+              console.log('An error occurred while fetching data.');
+            });
+        }
+        else
+        {
+          this.PrepareTournamentData();
+          this.PrepareGamesData();  
+        }
+        
+      },
+
+      PrepareTournamentData: function()
+      {
+        if(this.rawdata)
+        {
+          this.tournamentInfo.name = this.rawdata.Name;
+          this.tournamentInfo.gamesTotal = this.rawdata.GamesTotal;
+          this.tournamentInfo.gamesDone = this.rawdata.GamesDone;
+          this.tournamentInfo.lastUpdate = this.rawdata.LastUpdate;
+          this.tournamentInfo.clubs = this.rawdata.Clubs;
+        }    
+      },
+
+      PrepareGamesData: function()
+      {
+        this.currentScreen ++;     
+        if(this.rawdata)
+        {
+          var numberOfSchedules = this.NumberOfScheduleScreens();
+          if(this.currentScreen <= numberOfSchedules)
+          {
+              this.tournamentInfo.dataToShow = this.GenerateScheduleScreen();
+              console.log("hello");
+
+          }
+          else
+          {
+            var numberOfClassifications = this.NumberOfClassificationsScreens();
+            if(this.currentScreen <= (numberOfSchedules+numberOfClassifications))
+            {
+               this.tournamentInfo.dataToShow = this.GenerateClassificationsScreen(this.currentScreen-numberOfSchedules);
+               console.log(this.tournamentInfo.dataToShow);
+            }
+            else
+            {
+              this.currentScreen = 0;
+              this.PrepareGamesData();
+            }
+
+          }
+
+        }    
+      },
+      NumberOfScheduleScreens: function()
+      {
+        if(this.rawdata.Schedule)
+          return Math.ceil(this.rawdata.Schedule.length / (this.rawdata.ScheduleShowPerLine * 2));
+        else
+          return 0;
+      },
+      NumberOfClassificationsScreens: function()
+      {
+        if(this.rawdata.Classifications)
+        {
+          var total = 0;
+          (this.rawdata.Classifications.Phases).forEach(element => {
+            
+            total += element.Groups.length;
+          });
+          return total;
+
+        }
+        else
+          return 0;
+      },
+
+      GenerateScheduleScreen : function()
+      {
+
+        var typeOfScreen = "schedule";
+        if(this.rawdata.Schedule.length <= this.rawdata.ScheduleShowPerLine)
+        {
+          return  {
+            type: typeOfScreen,
+            scheduleData: this.rawdata.Schedule,
+            scheduleShowFullScreen: true,
+            scheduleShowPerLine: this.rawdata.ScheduleShowPerLine
+          };
+
+        }
+        else
+        {
+          return {
+            type: typeOfScreen,
+            scheduleData: this.rawdata.Schedule,
+            scheduleShowFullScreen: false,
+            scheduleShowPerLine: this.rawdata.ScheduleShowPerLine
+          };
+        }
+      },
+      GenerateClassificationsScreen : function(currentIndex)
+      {
+        if(!this.rawdata.Classifications.Phases)
+        {return;}
+
+        var typeOfScreen = "classification";
+
+        while(currentIndex > 0 )
+        {
+          let index = 0;
+          if (this.rawdata.Classifications.Phases[index].Groups.length > currentIndex)
+          {
+            categoryObj = this.rawdata.Classifications.Category;
+            phaseObj = this.rawdata.Classifications.Phases[index];
+            groupObj = this.rawdata.Classifications.Phases[index].Groups[currentIndex-1]
+            currentIndex = 0;
+          }
+          else
+          {
+            currentIndex -= this.rawdata.Classifications.Phases[index].Groups.length;
+            index ++;
+          }
+        }
+
+        if(phaseObj.Phase == "Fase Grupos")
+        {
+          return  {
+            type: typeOfScreen +"-groupphase",
+            category: categoryObj,
+            groupName: groupObj.Group ,
+            groupStandings: groupObj.Standings,
+            groupResults: groupObj.Results,
+          };
+        }
+       
+
+
+
+      },
+      RunLogic: function()
+      {
+          this.GetNow(); 
+          this.GetDataFromAPI();
+          this.WaitForNextScreen();
+ 
+      },
+
+      WaitForNextScreen() {
+        // return;
+        if (this.intervalId) {
+          clearInterval(this.intervalId); // Clear the previous interval
+        }
+
+        this.intervalId = setInterval(this.RunLogic, 10000); // 10 seconds
+       
+      },
+
+
   },
   computed: {
-    currentProperty() {
-      return this.properties[this.currentScreenIndex];
-    },
+
   },
 
   }).mount('#app')
