@@ -43,8 +43,7 @@
     methods: {
 
       GetLogoUrl(logoPath) {
-        // const domain = 'https://www.padelteams.pt';
-        const domain = '.';
+        const domain = 'https://www.padelteams.site';
         const fullUrl = domain + logoPath;
         return fullUrl;
       },
@@ -148,9 +147,10 @@
         if(this.rawdata.Classifications)
         {
           var total = 0;
-          (this.rawdata.Classifications.Phases).forEach(element => {
+          (this.rawdata.Classifications).forEach(element => {
             
-            total += element.Groups.length;
+            total += this.GetCategoryScreens(element);
+
           });
           return total;
 
@@ -185,33 +185,86 @@
       },
       GenerateClassificationsScreen : function(currentIndex)
       {
-        if(!this.rawdata.Classifications.Phases)
+        if(!this.rawdata.Classifications)
         {return;}
 
         var typeOfScreen = "classification";
 
-        while(currentIndex > 0 )
-        {
-          let index = 0;
-          if (this.rawdata.Classifications.Phases[index].Groups.length > currentIndex)
-          {
-            categoryObj = this.rawdata.Classifications.Category;
-            phaseObj = this.rawdata.Classifications.Phases[index];
-            groupObj = this.rawdata.Classifications.Phases[index].Groups[currentIndex-1]
-            currentIndex = 0;
-          }
-          else
-          {
-            currentIndex -= this.rawdata.Classifications.Phases[index].Groups.length;
-            index ++;
-          }
-        }
+        var phases = this.GetCategoryScreenToShowBasedOnIndex(currentIndex);
+
+
+        categoryObj = this.rawdata.Classifications[phases.category];
+        phaseObj = categoryObj.Phases[phases.phase];
+        groupObj = phaseObj.Groups[phases.group]
+      
+
+         
 
         if(phaseObj.Phase == "Fase Grupos")
         {
           return  {
             type: typeOfScreen +"-groupphase",
-            category: categoryObj,
+            category: categoryObj.Category,
+            groupName: groupObj.Group ,
+            groupStandings: groupObj.Standings,
+            groupResults: groupObj.Results,
+          };
+        }
+        else if(phaseObj.Phase == "1/32")
+        {
+          return  {
+            type: typeOfScreen +"-round64",
+            category: categoryObj.Category,
+            groupName: groupObj.Group ,
+            groupStandings: groupObj.Standings,
+            groupResults: groupObj.Results,
+          };
+        }
+        else if(phaseObj.Phase == "1/16")
+        {
+          return  {
+            type: typeOfScreen +"-round32",
+            category: categoryObj.Category,
+            groupName: groupObj.Group ,
+            groupStandings: groupObj.Standings,
+            groupResults: groupObj.Results,
+          };
+        }
+        else if(phaseObj.Phase == "1/8")
+        {
+          return  {
+            type: typeOfScreen +"-round16",
+            category: categoryObj.Category,
+            groupName: groupObj.Group ,
+            groupStandings: groupObj.Standings,
+            groupResults: groupObj.Results,
+          };
+        }
+        else if(phaseObj.Phase == "1/4")
+        {
+          return  {
+            type: typeOfScreen +"-quarter",
+            category: categoryObj.Category,
+            groupName: groupObj.Group ,
+            groupStandings: groupObj.Standings,
+            groupResults: groupObj.Results,
+          };
+        }
+        else if(phaseObj.Phase == "1/2")
+        {
+          return  {
+            type: typeOfScreen +"-semi",
+            category: categoryObj.Category,
+            groupName: groupObj.Group ,
+            groupStandings: groupObj.Standings,
+            groupResults: groupObj.Results,
+          };
+        }
+        else if(phaseObj.Phase == "Final")
+        {
+          return  {
+            type: typeOfScreen +"-final",
+            category: categoryObj.Category,
             groupName: groupObj.Group ,
             groupStandings: groupObj.Standings,
             groupResults: groupObj.Results,
@@ -238,6 +291,70 @@
 
         this.intervalId = setInterval(this.RunLogic, 10000); // 10 seconds
        
+      },
+
+      GetCategoryScreens(category)
+      {
+        let toReturn = 0;
+        if(category)
+        {
+          (category.Phases).forEach(phase => {
+        
+            toReturn += phase.Groups.length;
+          })
+
+        }
+
+        return toReturn;
+
+      },
+
+      GetCategoryScreenToShowBasedOnIndex(mainIndex)
+      {
+        let categoryIndex = 0;
+        let phaseIndex = 0;
+        let groupIndex = 0;
+        while(mainIndex > 0 )
+        {
+          let index = 0;
+
+          let thisCategoryScreens = this.GetCategoryScreens(this.rawdata.Classifications[index]);
+
+          if(thisCategoryScreens > mainIndex)
+          {
+            categoryIndex = index;  
+            phaseIndex = 0;        
+            //find phase
+            while(mainIndex > 0 )
+            {            
+              if(this.rawdata.Classifications[index].Phases[phaseIndex].Groups.length >= mainIndex)
+              {
+                groupIndex = mainIndex-1;
+                break;
+              }
+              else
+              {
+                mainIndex -= this.rawdata.Classifications[index].Phases[phaseIndex].Groups.length;
+                phaseIndex++;
+
+              }
+
+            };
+            break;
+          }
+          else
+          {
+            mainIndex -= thisCategoryScreens;
+            index++;
+          }      
+        }
+
+        return {
+          category: categoryIndex,
+          phase: phaseIndex,
+          group: groupIndex
+        };
+
       },
 
 

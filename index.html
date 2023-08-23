@@ -39,7 +39,7 @@
 
 
 
-  <div class="content" v-bind:class="{ 'basicPlayoffContent': 1 === currentScreenIndex }">
+   <div class="content"  >  <!--v-bind:class="{ 'basicPlayoffContent': 1 === currentScreenIndex }" -->
     <div class="container-fluid h-100">
       <div v-if="tournamentInfo.dataToShow.type === 'schedule'" class="row">
                
@@ -141,14 +141,21 @@
       </div>
 
         </template>
-        <!-- <template v-if="">
+        <template v-if="tournamentInfo.dataToShow.type === 'classification-round64' || tournamentInfo.dataToShow.type === 'classification-round32' || tournamentInfo.dataToShow.type === 'classification-round16'">
           <div class="row w-100 ml-0 mr-0">
 
             <div class="col-sm-12">
-              <div class="basicPlayoffHeader rounded">
-                {{ field.Category }} - {{ field.Phase == "Playoff32" ? '32 Avos De Final' : '' }}
+              <div class="basicPlayoffHeader rounded" v-if="tournamentInfo.dataToShow.type === 'classification-round64'">
+                {{ field.Category }} - 32 Avos De Final
               </div>
-              
+
+              <div class="basicPlayoffHeader rounded" v-if="tournamentInfo.dataToShow.type === 'classification-round32'">
+                {{ field.Category }} - 16 Avos De Final
+              </div>
+              <div class="basicPlayoffHeader rounded" v-if="tournamentInfo.dataToShow.type === 'classification-round16'">
+                {{ field.Category }} - Oitavos De Final
+              </div>             
+
             </div>
     
             <div class="col-sm-6">
@@ -408,7 +415,7 @@
               </div>
             </div>
             </div>
-        </template> -->
+        </template>
 
     </div>
   </div>
