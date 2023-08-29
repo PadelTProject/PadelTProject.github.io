@@ -210,14 +210,22 @@
             groupResults: groupObj.Results,
           };
         }
+        else if(phaseObj.Phase == "Nonstop")
+        {
+          return  {
+            type: typeOfScreen +"-nonstop",
+            category: categoryObj.Category,
+            groupName: "Nonstop",
+            groupStandings: groupObj.Standings,
+            groupResults: groupObj.Results,
+          };
+        }
         else if(phaseObj.Phase == "1/32")
         {
           return  {
             type: typeOfScreen +"-round64",
             category: categoryObj.Category,
-            groupName: groupObj.Group ,
-            groupStandings: groupObj.Standings,
-            groupResults: groupObj.Results,
+            results: groupObj.Results,
           };
         }
         else if(phaseObj.Phase == "1/16")
@@ -225,9 +233,7 @@
           return  {
             type: typeOfScreen +"-round32",
             category: categoryObj.Category,
-            groupName: groupObj.Group ,
-            groupStandings: groupObj.Standings,
-            groupResults: groupObj.Results,
+            results: groupObj.Results,
           };
         }
         else if(phaseObj.Phase == "1/8")
@@ -235,46 +241,43 @@
           return  {
             type: typeOfScreen +"-round16",
             category: categoryObj.Category,
-            groupName: groupObj.Group ,
-            groupStandings: groupObj.Standings,
-            groupResults: groupObj.Results,
+            results: groupObj.Results,
           };
         }
-        else if(phaseObj.Phase == "1/4")
+        else if(phaseObj.Phase == "1/4" || phaseObj.Phase == "1/2" || phaseObj.Phase == "Final")
         {
+
+          let quarterGames = categoryObj.Phases.filter(x => {return x.Phase == '1/4';});
+          let semiGames = categoryObj.Phases.filter(x => {return x.Phase == '1/2';});
+          let final = categoryObj.Phases.filter(x => {return x.Phase == 'Final';});
+
+
           return  {
-            type: typeOfScreen +"-quarter",
+            type: typeOfScreen +"-finals",
             category: categoryObj.Category,
-            groupName: groupObj.Group ,
-            groupStandings: groupObj.Standings,
-            groupResults: groupObj.Results,
+            quarterResults: this.ReturnGamesForFinalsPhase(quarterGames),
+            semiResults: this.ReturnGamesForFinalsPhase(semiGames),
+            finalResults: this.ReturnGamesForFinalsPhase(final)
           };
         }
-        else if(phaseObj.Phase == "1/2")
-        {
-          return  {
-            type: typeOfScreen +"-semi",
-            category: categoryObj.Category,
-            groupName: groupObj.Group ,
-            groupStandings: groupObj.Standings,
-            groupResults: groupObj.Results,
-          };
-        }
-        else if(phaseObj.Phase == "Final")
-        {
-          return  {
-            type: typeOfScreen +"-final",
-            category: categoryObj.Category,
-            groupName: groupObj.Group ,
-            groupStandings: groupObj.Standings,
-            groupResults: groupObj.Results,
-          };
-        }
+       
        
 
 
 
       },
+      ReturnGamesForFinalsPhase(phase)
+      { 
+        try {
+          return phase[0].Groups[0].Results
+        } catch (error) {
+          console.error(error);
+          return null;
+
+        }
+      },
+
+
       RunLogic: function()
       {
           this.GetNow(); 
@@ -289,7 +292,7 @@
           clearInterval(this.intervalId); // Clear the previous interval
         }
 
-        this.intervalId = setInterval(this.RunLogic, 10000); // 10 seconds
+        this.intervalId = setInterval(this.RunLogic, 2000); // 10 seconds
        
       },
 
@@ -314,15 +317,16 @@
         let categoryIndex = 0;
         let phaseIndex = 0;
         let groupIndex = 0;
+
+        let index = 0;
+
         while(mainIndex > 0 )
         {
-          let index = 0;
 
           let thisCategoryScreens = this.GetCategoryScreens(this.rawdata.Classifications[index]);
 
           if(thisCategoryScreens > mainIndex)
           {
-            categoryIndex = index;  
             phaseIndex = 0;        
             //find phase
             while(mainIndex > 0 )
@@ -346,7 +350,9 @@
           {
             mainIndex -= thisCategoryScreens;
             index++;
-          }      
+          }
+          categoryIndex = index;  
+      
         }
 
         return {

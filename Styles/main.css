@@ -178,6 +178,7 @@ h1 {
   padding-right: 0px;
   background-color: #fff;
   color: #000;
+  font-size: 1.1rem !important;
 }
 
 
@@ -253,7 +254,7 @@ h1 {
   text-align: center;
   font-family: fantasy !important;
   font-size: 2rem;
-  margin-top:45px;
+  /* margin-top:45px; */
 }
 
 .semiFinalPlayoffHeader
@@ -265,7 +266,7 @@ h1 {
   text-align: center;
   font-family: fantasy !important;
   font-size: 2rem;
-  margin-top:45px;
+  /* margin-top:45px; */
   margin-bottom: 45px;
 
 }
@@ -279,7 +280,7 @@ h1 {
   text-align: center;
   font-family: fantasy !important;
   font-size: 2rem;
-  margin-top:45px;
+  /* margin-top:45px; */
   /* margin-bottom: 45px; */
 
 }
@@ -302,6 +303,8 @@ h1 {
   padding-right: 0px;
   background-color: #fff;
   color: #000;
+    font-size: 1.1rem;
+
 }
 
 
@@ -326,6 +329,45 @@ h1 {
 .finalPlayoffContent
 {
   padding-top: 0.3%;
+}
+
+
+.finalPlayoffDetailsTeams .pl-3, .finalPlayoffDetailsTeams .pr-3
+{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: clip;
+  font-size: 1.0rem;
+  word-break: break-all;
+  max-width: 200px;
+
+
+}
+
+
+.classificationDetailsRow .pl-3, .classificationDetailsRow .pr-3
+{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: clip;
+  /* font-size: 1.2rem; */
+  word-break: break-all;
+  max-width: 220px;
+
+
+}
+
+
+.basicPlayoffDetailsTeams .pl-3, .basicPlayoffDetailsTeams .pr-3
+{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: clip;
+  font-size: 1.1rem;
+  word-break: break-all;
+  max-width: 200px;
+
+
 }
 
 
