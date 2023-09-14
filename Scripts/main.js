@@ -43,7 +43,7 @@
     methods: {
 
       GetLogoUrl(logoPath) {
-        const domain = 'https://www.padelteams.site';
+        const domain = 'https://www.padelteams.pt';
         const fullUrl = domain + logoPath;
         return fullUrl;
       },
@@ -67,7 +67,7 @@
         {
           this.apiDataTimingCounter = 0;
 
-          return axios({ url: 'https://padelteams.site/api/v1/tournament-info?code=' + this.tournamentCode, method: 'get' })
+          return axios({ url: 'https://padelteams.pt/api/v1/tournament-info?code=' + this.tournamentCode, method: 'get' })
             .then(response => {
               if(response.data.success == "1")
               {            
@@ -292,7 +292,7 @@
           clearInterval(this.intervalId); // Clear the previous interval
         }
 
-        this.intervalId = setInterval(this.RunLogic, 2000); // 10 seconds
+        this.intervalId = setInterval(this.RunLogic, 7500); // 10 seconds
        
       },
 
