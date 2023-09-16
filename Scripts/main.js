@@ -20,6 +20,7 @@
           },
           dataToShow: {},
           timestamp: '',
+          schedule: [],
         },
         currentScreen: 0, 
         tournamentCode: '',
@@ -79,6 +80,7 @@
               }
                 
               this.PrepareTournamentData();
+              this.SanitizeSchedule();
               this.PrepareGamesData();  
             })
             .catch(error => {
@@ -88,9 +90,53 @@
         else
         {
           this.PrepareTournamentData();
+          this.SanitizeSchedule();
+
           this.PrepareGamesData();  
         }
         
+      },
+
+      SanitizeSchedule: function()
+      {
+        this.tournamentInfo.schedule = [];
+
+        this.rawdata.Courts.forEach((item, index) => {
+
+          let court = { Id: item.id, Name: item.name, Games: this.FindGamesByCourt(item.id) };
+          if(court.Games.length > 0)
+            this.tournamentInfo.schedule.push(court);
+        })
+
+        //remove empties
+        this.tournamentInfo.schedule
+        
+
+
+      },
+
+      FindGamesByCourt: function(courtId)
+      {
+        let listOfGames = [];
+
+        const filter = game => 
+            game.CourtId == courtId && !game.Results;
+
+
+        this.rawdata.Classifications.forEach((cat) => {
+            cat.Phases.forEach((phase) => {
+              phase.Groups.forEach((group) => {
+                let gamesNotDone = group.Results.filter(filter);
+                if(gamesNotDone.length > 0 )
+                  listOfGames = listOfGames.concat(gamesNotDone)
+    
+              })
+  
+            })
+
+        })
+
+          return listOfGames;
       },
 
       PrepareTournamentData: function()
@@ -137,8 +183,8 @@
       },
       NumberOfScheduleScreens: function()
       {
-        if(this.rawdata.Schedule)
-          return Math.ceil(this.rawdata.Schedule.length / (this.rawdata.ScheduleShowPerLine * 2));
+        if(this.tournamentInfo.schedule)
+          return Math.ceil(this.tournamentInfo.schedule.length / (this.rawdata.ScheduleShowPerLine * 2));
         else
           return 0;
       },
@@ -163,11 +209,11 @@
       {
 
         var typeOfScreen = "schedule";
-        if(this.rawdata.Schedule.length <= this.rawdata.ScheduleShowPerLine)
+        if(this.tournamentInfo.schedule.length <= this.rawdata.ScheduleShowPerLine)
         {
           return  {
             type: typeOfScreen,
-            scheduleData: this.rawdata.Schedule,
+            scheduleData: this.tournamentInfo.schedule,
             scheduleShowFullScreen: true,
             scheduleShowPerLine: this.rawdata.ScheduleShowPerLine
           };
@@ -177,7 +223,7 @@
         {
           return {
             type: typeOfScreen,
-            scheduleData: this.rawdata.Schedule,
+            scheduleData: this.tournamentInfo.schedule,
             scheduleShowFullScreen: false,
             scheduleShowPerLine: this.rawdata.ScheduleShowPerLine
           };
