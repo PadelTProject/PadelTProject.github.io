@@ -107,19 +107,13 @@
           if(court.Games.length > 0)
             this.tournamentInfo.schedule.push(court);
         })
-
-        //remove empties
-        this.tournamentInfo.schedule
-        
-
-
       },
 
       FindGamesByCourt: function(courtId)
       {
         let listOfGames = [];
 
-        const filter = game => 
+        let filter = game => 
             game.CourtId == courtId && !game.Results;
 
 
